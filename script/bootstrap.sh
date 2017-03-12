@@ -1,23 +1,24 @@
 #!/usr/bin/env bash
 # -*- coding: utf-8 -*-
 
-PROJECT_NAME=go-iris-example
-PYTHON_VERSION=2.7.9
-PYENV_NAME="${PROJECT_NAME}"
+export PROJECT_NAME=go-iris-example
+export PYTHON_VERSION=2.7.9
+export PYENV_NAME="${PROJECT_NAME}"
 
-GVM_NAME="${PROJECT_NAME}"
-GVM_PATHS_NAME=(
+export GVM_NAME="${PROJECT_NAME}"
+export GVM_PATHS_NAME=(
     "src"
     "pkg"
     "bin"
 )
 
-GRIP_PORT=6430
+export GRIP_PORT=6430
 
 # Vars Dir
-ROOT_DIR="$(pwd)"
-RESOURCES_DIR="${SOURCE_DIR}/resources"
-RESOURCES_DB_DIR="${RESOURCES_DIR}/db"
-PROVISION_DIR="${ROOT_DIR}/provision/ansible"
-SOURCE_DIR="${ROOT_DIR}"
-REQUIREMENTS_DIR="${SOURCE_DIR}/requirements"
+export ROOT_DIR
+ROOT_DIR=$(pwd)
+export RESOURCES_DIR="${SOURCE_DIR}/resources"
+export RESOURCES_DB_DIR="${RESOURCES_DIR}/db"
+export PROVISION_DIR="${ROOT_DIR}/provision/ansible"
+export SOURCE_DIR="${ROOT_DIR}"
+export REQUIREMENTS_DIR="${SOURCE_DIR}/requirements"
