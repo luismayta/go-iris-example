@@ -1,0 +1,8 @@
+hash: 28133c271833ae1901d3608a6c8111a691d7ca3705af42390e9843905c2439f3
+updated: 2017-03-12T09:29:06.381949753-05:00
+imports:
+- name: gopkg.in/kataras/iris.v6
+  version: c598e7bee38a260b7173418a33281bf1a9f91aab
+  subpackages:
+  - iris
+testImports: []
