@@ -1,0 +1,41 @@
+# Go-Iris-Example: Docker Compose
+# https://docs.docker.com/compose/
+#
+# Usage: docker-compose up
+version: '2'
+services:
+
+  # PostgreSQL database
+  db:
+    restart: always
+    image: dgnest/postgres:9.4
+    env_file:
+      - .env
+    volumes:
+      - pgvolume:/var/lib/postgresql/data #using the declared volume
+
+
+  # golang web server
+  web:
+    restart: always
+    image: golang:1.8.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    hostname: web
+    depends_on:
+      - db
+    volumes_from:
+      - source_store
+
+  source_store:
+    image: busybox
+    volumes:
+      - ./:/go/src/go-iris-example
+
+volumes:
+  pgvolume:
+    external:
+      name: go-iris-example_pgvolume

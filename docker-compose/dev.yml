@@ -1,0 +1,29 @@
+# Go-Iris-Example: Docker Compose
+# https://docs.docker.com/compose/
+#
+# Usage: docker-compose.dev up
+version: '2'
+services:
+
+  # PostgreSQL database
+  db:
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=go-iris-example
+    ports:
+      - "5432:5432"
+
+  # golang web server
+  web:
+    ports:
+      - "80:8080"
+      - "8080:5000"
+    volumes_from:
+      - source_store
+    environment: &environment
+      - DB_URL=postgres://postgres:postgres@db:5432/go-iris-example
+      - C_FORCE_ROOT=True
+      - MEDIA_URL=media/
+      - IS_SECURE=True
+      - DEBUG=True
